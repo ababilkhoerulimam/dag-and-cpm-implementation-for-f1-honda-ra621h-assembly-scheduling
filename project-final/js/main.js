@@ -296,7 +296,7 @@ function renderDAG() {
   for (const [nid, pos] of Object.entries(S.dagNodes)) {
     const node    = nodes[nid];
     const cpm     = cpmNodes[nid] || {};
-    const color   = SUB_COLORS[node?.subsystem] ?? '#555';
+    const color   = SUB_COLORS[node?.subsystem] ?? '#ffffff';
     const isCP    = cpm.on_cp === true;
 
     const g = document.createElementNS(NS, 'g');
@@ -330,7 +330,7 @@ function renderDAG() {
     text.setAttribute('y', '3');
     text.setAttribute('font-size', '5');
     text.setAttribute('font-family', 'JetBrains Mono, monospace');
-    text.setAttribute('fill', '#aaa');
+    text.setAttribute('fill', '#ffffff');
     text.setAttribute('class', 'dag-label');
     text.textContent = nid;
     g.appendChild(text);
@@ -350,7 +350,7 @@ function renderDAGLegend() {
   container.innerHTML = '';
   const subsystems = [...new Set(S.components.map(c => c.subsystem))];
   subsystems.forEach(sub => {
-    const color = SUB_COLORS[sub] ?? '#555';
+    const color = SUB_COLORS[sub] ?? '#ffffff';
     const short = sub.split('–').pop().trim();
     const div = document.createElement('div');
     div.className = 'legend-item';
@@ -557,7 +557,7 @@ function renderSubsystemTable(data) {
   if (!tbody) return;
   tbody.innerHTML = '';
   data.forEach(row => {
-    const color = SUB_COLORS[row.subsystem] ?? '#555';
+    const color = SUB_COLORS[row.subsystem] ?? '#ffffff';
     const short = row.subsystem.split('–').pop().trim();
     const tr = document.createElement('tr');
     tr.innerHTML = `
@@ -596,7 +596,7 @@ function renderFloatBySubChart(data) {
   container.innerHTML = '';
   const maxVal = Math.max(...data.map(d => d.avg_float), 1);
   data.forEach(d => {
-    const color = SUB_COLORS[d.subsystem] ?? '#555';
+    const color = SUB_COLORS[d.subsystem] ?? '#ffffff';
     const short = d.subsystem.split('–').pop().trim();
     const pct   = Math.round((d.avg_float / maxVal) * 100);
     const row   = document.createElement('div');
@@ -659,7 +659,7 @@ function renderKahnWaveGrid() {
       <div class="wave-nodes" id="wave-nodes-${wi}">
         ${wave.map(id => {
           const comp     = nodesMap.get(id);
-          const color    = SUB_COLORS[comp?.subsystem] ?? '#555';
+          const color    = SUB_COLORS[comp?.subsystem] ?? '#ffffff';
           const shortNm  = (comp?.name ?? id).slice(0, 18) + ((comp?.name?.length ?? 0) > 18 ? '…' : '');
           return `
             <div class="node-card state-pending" id="nc-${id}" data-id="${id}">
