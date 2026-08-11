@@ -1,5 +1,9 @@
 # DAG and CPM Implementation for F1 Honda RA621H Assembly Scheduling
 
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+
 This project implements the **Directed Acyclic Graph (DAG)** and **Critical Path Method (CPM)** to optimize the assembly scheduling and task dependency analysis of the Formula 1 Honda RA621H engine.
 
 ## Table of Contents
